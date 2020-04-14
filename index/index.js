@@ -4,9 +4,6 @@ if (typeof(cache) === 'undefined') {
     var cache = require('./cache');
  }
 
- // Number of classes
- var result;
-
 // Calls the banner proxy and returns the total number of classes
 async function invokeLambda(event) {
     let bannerArgs = {
@@ -71,12 +68,7 @@ async function updateSubj(size, event) {
 exports.handler = async (event) => {
     
     // Makes a call to banner API to learn how many total classes in a subject there is
-    if(typeof result == 'undefined') {
-        result = await invokeLambda(event);
-        console.log("Cache Miss");
-    } else {
-        console.log("Cache Hit");
-    }
+    var result = await invokeLambda(event);
      
     // Prints the subject and amount of classes
     console.log(result);
