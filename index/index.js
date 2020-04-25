@@ -46,7 +46,7 @@ async function updateSubj(size, event) {
                 "term": 202036,
                 "subject": String(event.subject),
                 "offset": parseInt(index * 25),
-                "pageSize": parseInt((index + 1) * 25)
+                "pageSize": 25
               }
         };
         
